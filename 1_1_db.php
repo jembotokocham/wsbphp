@@ -1,5 +1,4 @@
 <?php
-echo Maria
   require "./scripts/connect.php";
   $sql = "SELECT * FROM `user` JOIN `city` ON `user`.`city_id`=`city`.`id`";
   $result = $conn->query($sql);

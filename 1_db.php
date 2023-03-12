@@ -1,5 +1,5 @@
 <?php
-  $conn = new mysqli("localhost", "root", "", "wsb_2023l_5s6s_sp3");
+  $conn = new mysqli("localhost", "root", "", "baza");
   // echo "<hr>".$conn->connect_errno;
 
   $sql = "SELECT * FROM `user`";
