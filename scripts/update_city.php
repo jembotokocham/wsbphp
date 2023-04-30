@@ -23,12 +23,12 @@ if ($error != 0){
 }
 
 require_once "./connect.php";
-$sql = "INSERT INTO `user` (`id`, `city_id`, `firstName`, `lastName`, `birthday`) VALUES (NULL, '$_POST[city_id]', '$_POST[firstName]', '$_POST[lastName]', '$_POST[birthday]');";
+$sql = "UPDATE `user` SET `city_id`='$_POST[city_id]' WHERE `user`.`id`=$_SESSION[updateCityId] AND `city_id`!=$_POST[city_id];";
 $conn->query($sql);
 if ($conn->affected_rows != 0){
-    $_SESSION["success"] = "Prawidłowo dodano użytkownika $_POST[firstName] $_POST[lastName]";
+    $_SESSION["success"] = "Prawidłowo zaktualizowano miasto użytkownika $_POST[firstName] $_POST[lastName]";
 }else{
-    $_SESSION["error"] = "Nie dodano użytkownika!";
+    $_SESSION["error"] = "Nie zaktualizowano miasta użytkownika lub nie wprowadzono zmian!";
 }
 
 header ("location: ../3_db_table_delete_add.php");
